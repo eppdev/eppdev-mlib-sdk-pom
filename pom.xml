@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.eppdev.mlib</groupId>
+    <version>1.0.0</version>
+    <artifactId>eppdev-mlib-sdk-pom</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>eppdev-mlib-sdk-hive-udf12</module>
+        <module>eppdev-mlib-sdk-hive-udf23</module>
+        <module>eppdev-mlib-sdk-hive-udf31</module>
+        <module>eppdev-mlib-sdk-simple-evaluator</module>
+    </modules>
+
+
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>the sdk to call eppdev-mlib.
+    </description>
+    <url>https://mlib.eppdev.cn/</url>
+
+    <licenses>
+        <license>
+            <name>Anti-996 License 1.0</name>
+            <url>https://github.com/996icu/996.ICU/blob/master/LICENSE</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>jinlong.hao</name>
+            <email>jinlong.hao@eppdev.cn</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com:eppdev/eppdev-mlib-sdk-pom.git</connection>
+        <developerConnection>scm:git:ssh://github.com:eppdev/eppdev-mlib-sdk-pom.git</developerConnection>
+        <url>http://github.com/eppdev/eppdev-mlib-sdk-pom/tree/master</url>
+    </scm>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jackson.version>2.9.10</jackson.version>
+        <commons-codec.version>1.10</commons-codec.version>
+        <commons-beanutils.version>1.9.1</commons-beanutils.version>
+        <commons-lang3.version>3.3.2</commons-lang3.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <junit.version>4.12</junit.version>
+        <pagehelper-spring-boot-starter.version>1.2.9</pagehelper-spring-boot-starter.version>
+        <mysql-connection.version>5.1.46</mysql-connection.version>
+        <druid.version>1.1.12</druid.version>
+        <ojdbc.version>10.2.0.4.0</ojdbc.version>
+        <jpmml.version>1.4.11</jpmml.version>
+    </properties>
+
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
+            <!-- apache commons -->
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>1.9.3</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.5.6</version>
+            </dependency>
+            <!-- end of commons -->
+
+            <!-- version fo jackson -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <!-- end of jackson -->
+
+            <!-- for database -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connection.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc14</artifactId>
+                <version>${ojdbc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!-- end of database -->
+
+            <!-- for eppdev-mlib -->
+            <dependency>
+                <groupId>cn.eppdev.mlib</groupId>
+                <artifactId>eppdev-mlib-basic-rpc</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.eppdev.mlib</groupId>
+                <artifactId>eppdev-mlib-basic-utils</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.eppdev.mlib</groupId>
+                <artifactId>eppdev-mlib-basic-orm</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- end of eppdev-mlib -->
+
+            <dependency>
+                <groupId>org.jpmml</groupId>
+                <artifactId>pmml-evaluator</artifactId>
+                <version>${jpmml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jpmml</groupId>
+                <artifactId>pmml-evaluator-extension</artifactId>
+                <version>${jpmml.version}</version>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <!-- Source -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.2.1</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- Javadoc -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.9.1</version>
+                        <configuration>
+                            <show>private</show>
+                            <nohelp>true</nohelp>
+                            <charset>UTF-8</charset>
+                            <encoding>UTF-8</encoding>
+                            <docencoding>UTF-8</docencoding>
+                            <additionalparam>-Xdoclint:none</additionalparam>  <!-- TODO 临时解决不规范的javadoc生成报错,后面要规范化后把这行去掉 -->
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- GPG -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>oss</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+
+</project>
